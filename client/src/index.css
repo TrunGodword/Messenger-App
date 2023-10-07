@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Mooli&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Header section */
+header{
+    padding: 0 35px;
+    height: 5vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: aquamarine;
+}
+
+header a{
+    text-decoration: none;
+}
+
+header .Logo{
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+header .HeaderLeft{
+    display: flex;
+    gap: 25px;  
+    font-family: 'Mooli', sans-serif;
+}
+
+/* Home */
+
+.Login, .Home, .Register{
+    background-color: aqua;
+    min-height: 95vh;
+}
+
+.Home{
+    display: flex;
+}
+
+.Home .Pillars{
+    max-height: 100vh;
+    border: 1px solid black
+}
+
+.Home .Friends{
+    width: 20vw;
+}
+
+.Home .Chat{
+    width: 60vw;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.Home .Misc{
+    width: 20vw;
+}
+
+/* Individual sections */
+/* Friends */
+.Home .Friends .List{
+    display: flex;
+    font-family: 'Mooli', sans-serif;
+    font-size: 13px;
+
+    gap: 5px;
+    padding-left: 10px;
+}
+
+.Home .Friends .List img, .Home .Chat .Message img{
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+}
+/* Chat */
+.Home .Chat .MessageBox, .Home .Chat .Message{
+    display: flex;    
+    font-family: 'Mooli', sans-serif;
+    font-size: 13px;
+    position: relative;
+}
+
+.Home .Chat .Message{
+    padding-left: 15px;
+}
+
+.Home .Chat .MessageBox input{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 15px
+}
+
+.Home .Chat .MessageBox button{
+    width: 50px;
+    height: 50px;
+    right:0;
+    position: absolute;
+
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px
+}
