@@ -1,21 +1,19 @@
+import { useState } from "react";
 import React from 'react'
-import {Routes, Route} from 'react-router-dom'
-import Home from "./components/Home"
-import Login from './components/Login'
-import Register from './components/Register'
-import Header from './components/Header'
 
-const App = () => {
-  return (
-    <>
-    <Header/>
-      <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/login" element={<Login/>}></Route>
-        <Route path="/register" element={<Register/>}></Route>
-      </Routes>
-    </>
-  )
+import "./App.css";
+
+import AuthPage from "./AuthPage.jsx";
+import ChatsPage from "./ChatsPage.jsx";
+
+function App() {
+  const [user, setUser] = useState(undefined);
+
+  if (!user) {
+    return <AuthPage onAuth={(user) => setUser(user)} />;
+  } else {
+    return <ChatsPage user={user} />;
+  }
 }
 
-export default App
+export default App;
