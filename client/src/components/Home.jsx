@@ -1,30 +1,39 @@
 import React from 'react'
+import axios from 'axios'
 
-const Home = () => {
-  return (
-    <div className='Home'>
-        <div className='Pillars Friends'>
-            <div className='List'>
-                <img src='../../image/pfp.png'></img>
-                <h2 className='Name'>Name here</h2>
-            </div>
-        </div>
-        <div className='Pillars Chat'>
-            <form className='MessageBox'>
-                <input type='text' placeholder='Message here'></input>
-                <button>Send</button>
-            </form>
-            <div className='Message'>
-                <img src='../../image/pfp.png'></img>
-                <div className='MessageBody'>
-                    <h2 className='Name'>Name here</h2>
-                    <h3 className='Text'>Random text here</h3>
-                </div>
-            </div>
-        </div>
-        <div className='Pillars Misc'></div>
-    </div>
-  )
-}
-
-export default Home
+const Home = (props) => {
+    const onSubmit = (e) => {
+      e.preventDefault();
+      const { value } = e.target[0];
+      axios.post('http://localhost:5656/authenticate',
+      {username: value})
+      .then(
+        r => props.onAuth({ ...r.data, secret: value})
+      )
+      .catch(
+        error => console.log("error", error)
+      )
+      props.onAuth({ username: value, secret: value });
+    };
+  
+    return (
+      <div className="background">
+        <form onSubmit={onSubmit} className="form-card">
+          <div className="form-title">Welcome to our Messaging App project.  <br></br>
+          By Сүхбат, Агваандорж, Буяка, Есүнгоо.👋</div>
+  
+          <div className="form-subtitle">Enter a username here:</div>
+  
+          <div className="auth">
+            <div className="auth-label">Username</div>
+            <input className="auth-input" name="username" />
+            <button className="auth-button" type="submit">
+              Enter
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  };
+  
+  export default Home;

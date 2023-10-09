@@ -1,18 +1,20 @@
 import { useState } from "react";
 import React from 'react'
 
-import "./App.css";
+import Home from "./Home.jsx";
+import Chat from "./Chat.jsx";
 
-import AuthPage from "./AuthPage.jsx";
-import ChatsPage from "./ChatsPage.jsx";
+import "./App.css";
+import "../index.css"
+
 
 function App() {
   const [user, setUser] = useState(undefined);
 
   if (!user) {
-    return <AuthPage onAuth={(user) => setUser(user)} />;
+    return <Home onAuth={(user) => setUser(user)} />;
   } else {
-    return <ChatsPage user={user} />;
+    return <Chat user={user} />;
   }
 }
 
